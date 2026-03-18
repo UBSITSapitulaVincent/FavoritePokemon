@@ -1,57 +1,104 @@
+:root {
+    /* Official Pokémon Brand Colors */
+    --pkmn-blue-dark: #3c5aa6;   /* Logo Dark Blue */
+    --pkmn-blue-light: #2a75bb;  /* Logo Light Blue */
+    --pkmn-yellow: #ffcb05;       /* Logo Yellow */
+    --pkmn-yellow-dark: #c7a008;  /* Logo Shadow Yellow */
+    --pkmn-red: #ff0000;          /* Poké Ball Red */
+    --pkmn-white: #f0f0f0;
+}
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f0f2f5;
-    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Dynamic Blue Gradient reminiscent of the classic game menus */
+    background: radial-gradient(circle at center, var(--pkmn-blue-light) 0%, var(--pkmn-blue-dark) 100%);
+    background-attachment: fixed;
 }
 
 form {
     background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    /* Red accent border like a Pokédex */
+    border: 8px solid var(--pkmn-red);
+    box-shadow: 0 10px 0 rgba(0,0,0,0.2);
+    width: 100%;
     max-width: 400px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 input {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #fdfdfd;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--pkmn-blue-light);
 }
 
 button {
-    background-color: #ef5350;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 4px;
+    background-color: var(--pkmn-yellow);
+    color: var(--pkmn-blue-dark);
+    border: 3px solid var(--pkmn-blue-dark);
+    padding: 15px;
+    border-radius: 12px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 900;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: all 0.1s ease;
+    box-shadow: 0 4px 0 var(--pkmn-yellow-dark);
 }
 
-button:disabled {
-    background-color: #ccc;
+button:hover:not(:disabled) {
+    background-color: #ffde00;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--pkmn-yellow-dark);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 0px 0 var(--pkmn-yellow-dark);
 }
 
 .card {
     background: #fff;
-    border-left: 5px solid #ffcb05;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    /* Pokémon TCG style border */
+    border: 5px solid var(--pkmn-yellow);
+    outline: 3px solid var(--pkmn-blue-dark);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    width: 100%;
     max-width: 400px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
 }
 
 h3 {
     margin: 0;
-    color: #333;
+    color: var(--pkmn-blue-dark);
+    font-size: 1.3rem;
+    text-transform: capitalize;
 }
 
 p {
-    margin: 5px 0 0;
-    color: #666;
+    margin: 10px 0 0;
+    color: #444;
+    font-weight: 500;
+    line-height: 1.4;
 }
